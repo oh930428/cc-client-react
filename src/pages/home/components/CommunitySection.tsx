@@ -1,5 +1,6 @@
 import CommunityCard from "components/CommunityCard";
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import { mixin, fonts } from "styles";
 import { ICommunity } from "types/type";
@@ -10,7 +11,10 @@ interface CommunityProps {
 }
 
 const CommunitySection = ({ title, communities }: CommunityProps) => {
-  return (
+  const isMobile = useMediaQuery({
+    query: "(max-width: 767px)",
+  });
+  return isMobile ? null : (
     <Container>
       <div className="community-title">{title}</div>
       <div className="community-contents">

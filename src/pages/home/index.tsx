@@ -10,6 +10,7 @@ import {
 
 import { ICamp, ICommunity } from "types/type";
 import { mixin } from "styles";
+import { useMediaQuery } from "react-responsive";
 
 const dumyCamp: ICamp[] = [
   {
@@ -115,11 +116,15 @@ const dumyCommunity: ICommunity[] = [
 ];
 
 const Home = () => {
+  const isMobile = useMediaQuery({
+    query: "(max-width:767px)",
+  });
   return (
     <Container>
       <Navigation />
       <HeaderSection />
       <main>
+        <Padding height="64px" />
         <CampSection title="인기 부트 캠프" camps={dumyCamp} />
         <Padding height="48px" />
         <CampSection title="특가 할인 캠프" camps={dumyCamp} />
@@ -129,7 +134,7 @@ const Home = () => {
         />
         <Padding height="54px" />
         <CommunitySection title="커뮤니티" communities={dumyCommunity} />
-        <Padding height="242px" />
+        {!isMobile && <Padding height="242px" />}
       </main>
       <Footer />
     </Container>

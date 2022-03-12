@@ -1,24 +1,47 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { mixin } from "styles";
+import { colors, mixin } from "styles";
 
 const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    changeBackground();
+    window.addEventListener("scroll", changeBackground);
+  });
+
+  const changeBackground = () => {
+    if (window.scrollY >= 80) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
   return (
-    /* to-do: 스크롤 시 아이콘 색깔 변화 작업 해야됨 */
-    <Container>
+    <Container isScrolled={isScrolled}>
       <div className="main">
         <Link to="/">
           <img
             className="logo"
-            src={require("../assets/images/logo_white.png")}
+            src={
+              isScrolled
+                ? require("../assets/images/logo_noWhite.png")
+                : require("../assets/images/logo_white.png")
+            }
             alt="로고"
           />
         </Link>
         <Link to="/community">
           <img
             className="ic-person"
-            src={require("../assets/images/ic_person_white.png")}
+            src={
+              isScrolled
+                ? require("../assets/images/ic_person_noWhite.png")
+                : require("../assets/images/ic_person_white.png")
+            }
             alt="프로필"
           />
         </Link>
@@ -29,10 +52,17 @@ const Navigation = () => {
 
 export default Navigation;
 
-const Container = styled.nav`
+const Container = styled.nav<{ isScrolled: boolean }>`
   z-index: 100;
   position: fixed;
   width: 100%;
+
+  ${(props) =>
+    props.isScrolled &&
+    css`
+      background-color: ${colors.white};
+      transition: 0.5s;
+    `}
 
   .main {
     ${mixin.maxWidth}

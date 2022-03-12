@@ -6,11 +6,12 @@ import { ICamp } from "types/type";
 
 interface CardProps {
   camps: ICamp;
+  isMobile: boolean;
 }
 
-const Card = ({ camps }: CardProps) => {
+const Card = ({ camps, isMobile }: CardProps) => {
   return (
-    <Container bgImg={camps.thumbnail}>
+    <Container bgImg={camps.thumbnail} bgWidth={isMobile}>
       <BgOpacityBlack />
       <div className="card-content">
         <div className="card-head">{camps.status}</div>
@@ -23,9 +24,9 @@ const Card = ({ camps }: CardProps) => {
 
 export default Card;
 
-const Container = styled.div<{ bgImg: string }>`
+const Container = styled.div<{ bgImg: string; bgWidth: boolean }>`
   position: relative;
-  width: 224px;
+  width: ${(props) => (props.bgWidth ? "100%" : "224px")};
   height: 280px;
   background-image: url(${(props) => props.bgImg});
   background-position: center;
