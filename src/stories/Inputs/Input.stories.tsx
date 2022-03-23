@@ -6,11 +6,19 @@ import InputList from "./InputList";
 export default {
   title: "Components/InputList",
   component: InputList,
+  argTypes: {
+    size: {
+      options: ["Small", "Regular", "Large"],
+      control: { type: "select" },
+      defaultValue: ["Small"],
+    },
+  },
 } as ComponentMeta<typeof InputList>;
 
 const Template: ComponentStory<typeof InputList> = (args) => (
   <InputList {...args} />
 );
+
 export const BgColorGrey = Template.bind({});
 BgColorGrey.args = {
   bgColor: "grey",
@@ -30,6 +38,7 @@ BgColorGrey.args = {
       backIcon: require("../assets/iconsImage/person.png"),
     },
   ],
+  size: "Small",
 };
 
 export const BgColorWhite = Template.bind({});
@@ -51,4 +60,5 @@ BgColorWhite.args = {
       backIcon: require("../assets/iconsImage/person.png"),
     },
   ],
+  size: "Small",
 };
