@@ -5,3 +5,5 @@ export { default as Padding } from "./Padding";
 export { default as Tag } from "./Tag";
 export { default as Comments } from "./Comments";
 export { default as Footer } from "./Footer";
+export { default as Icons } from "./Icons";
+export { default as Inputs } from "./Inputs";

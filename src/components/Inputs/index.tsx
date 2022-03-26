@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "stories/styles/styles";
 import styled, { css } from "styled-components";
+import { sizes } from "styles";
 
-interface InputListProps {
+export interface InputListProps {
   bgColor: string;
   items: {
     id: number;
@@ -13,7 +13,7 @@ interface InputListProps {
   size: string;
 }
 
-const InputList = ({ items, bgColor, size }: InputListProps) => {
+const Inputs = ({ items, bgColor, size }: InputListProps) => {
   return (
     <Container bgColor={bgColor}>
       {items.map((item) => (
@@ -31,7 +31,7 @@ const InputList = ({ items, bgColor, size }: InputListProps) => {
   );
 };
 
-export default InputList;
+export default Inputs;
 
 const Container = styled.div<{ bgColor: string }>`
   display: flex;
@@ -59,10 +59,10 @@ const Container = styled.div<{ bgColor: string }>`
         gap: 5px;
         .frontIcon,
         .backIcon {
-          ${styles.SmallIcon}
+          ${sizes.SmallIcon}
         }
         input {
-          ${styles.SmallInput}
+          ${sizes.SmallInput}
         }
       }
       .Regular {
@@ -70,10 +70,10 @@ const Container = styled.div<{ bgColor: string }>`
         gap: 9px;
         .frontIcon,
         .backIcon {
-          ${styles.RegularIcon}
+          ${sizes.RegularIcon}
         }
         input {
-          ${styles.RegularInput}
+          ${sizes.RegularInput}
         }
       }
       .Large {
@@ -81,10 +81,10 @@ const Container = styled.div<{ bgColor: string }>`
         gap: 9px;
         .frontIcon,
         .backIcon {
-          ${styles.LargeIcon}
+          ${sizes.LargeIcon}
         }
         input {
-          ${styles.LargeInput}
+          ${sizes.LargeInput}
         }
       }
     `}
@@ -107,10 +107,10 @@ const Container = styled.div<{ bgColor: string }>`
         gap: 5px;
         .frontIcon,
         .backIcon {
-          ${styles.SmallIcon}
+          ${sizes.SmallIcon}
         }
         input {
-          ${styles.SmallInput}
+          ${sizes.SmallInput}
         }
       }
       .Regular {
@@ -118,10 +118,10 @@ const Container = styled.div<{ bgColor: string }>`
         gap: 9px;
         .frontIcon,
         .backIcon {
-          ${styles.RegularIcon}
+          ${sizes.RegularIcon}
         }
         input {
-          ${styles.RegularInput}
+          ${sizes.RegularInput}
         }
       }
       .Large {
@@ -129,65 +129,11 @@ const Container = styled.div<{ bgColor: string }>`
         gap: 9px;
         .frontIcon,
         .backIcon {
-          ${styles.LargeIcon}
+          ${sizes.LargeIcon}
         }
         input {
-          ${styles.LargeInput}
+          ${sizes.LargeInput}
         }
       }
     `}
 `;
-
-// ${(props) =>
-//   props.bgColor === "grey" &&
-//   css`
-//     background-color: #e2e8f0;
-//     .inputDiv {
-//       width: 100%;
-//       display: flex;
-//       align-items: center;
-//       justify-content: flex-start;
-//       padding: 15px 12px;
-//       background-color: #fff;
-//       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1),
-//         0px 1px 2px rgba(0, 0, 0, 0.06);
-//       border-radius: 4px;
-//       gap: 8px;
-//     }
-//     .frontIcon,
-//     .backIcon {
-//       width: 16px;
-//       height: 18px;
-//     }
-//     input {
-//       width: 100%;
-//       border: none;
-//     }
-//   `}
-
-// ${(props) =>
-//   props.bgColor === "white" &&
-//   css`
-//     background-color: #fff;
-//     .inputDiv {
-//       width: 100%;
-//       display: flex;
-//       align-items: center;
-//       justify-content: flex-start;
-//       padding: 15px 12px;
-//       background-color: #fff;
-//       border: 1px solid #cbd5e0;
-//       border-radius: 4px;
-//       gap: 8px;
-//     }
-//     .frontIcon,
-//     .backIcon {
-//       width: 16px;
-//       height: 18px;
-//     }
-//     input {
-//       width: 100%;
-//       border: none;
-//     }
-//   `}
-// `;

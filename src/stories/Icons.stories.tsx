@@ -1,15 +1,16 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Story, Meta } from "@storybook/react";
 
-import IconList from "./IconList";
+import { Icons } from "../components/index";
+import { IconListProps } from "components/Icons";
 
 export default {
   title: "Components/IconList",
-  component: IconList,
-} as ComponentMeta<typeof IconList>;
+  component: Icons,
+} as Meta;
 
-const Template: ComponentStory<typeof IconList> = (args) => {
-  return <IconList items={args.items} />;
+const Template: Story<IconListProps> = (args) => {
+  return <Icons items={args.items} />;
 };
 
 export const Default = Template.bind({});

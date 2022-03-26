@@ -1,11 +1,12 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Story, Meta } from "@storybook/react";
 
-import InputList from "./InputList";
+import { Inputs } from "../components/index";
+import { InputListProps } from "components/Inputs";
 
 export default {
   title: "Components/InputList",
-  component: InputList,
+  component: Inputs,
   argTypes: {
     size: {
       options: ["Small", "Regular", "Large"],
@@ -13,11 +14,9 @@ export default {
       defaultValue: ["Small"],
     },
   },
-} as ComponentMeta<typeof InputList>;
+} as Meta;
 
-const Template: ComponentStory<typeof InputList> = (args) => (
-  <InputList {...args} />
-);
+const Template: Story<InputListProps> = (args) => <Inputs {...args} />;
 
 export const BgColorGrey = Template.bind({});
 BgColorGrey.args = {

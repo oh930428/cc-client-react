@@ -10,11 +10,11 @@ interface IconProps {
   iconShadow?: string;
 }
 
-interface IconListProps {
+export interface IconListProps {
   items: IconProps[];
 }
 
-const IconList = ({ items }: IconListProps) => {
+const Icons = ({ items }: IconListProps) => {
   return (
     <Container>
       {items.map((item) => (
@@ -31,7 +31,7 @@ const IconList = ({ items }: IconListProps) => {
   );
 };
 
-export default IconList;
+export default Icons;
 
 const Container = styled.div`
   display: flex;
