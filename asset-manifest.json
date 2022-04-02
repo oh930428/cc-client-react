@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/cc-client-react/static/js/main.8920f61e.js",
+    "static/media/home_header_bg.png": "/cc-client-react/static/media/home_header_bg.4b81e0110a6d012c70e2.png",
+    "static/media/home_thumbnail.png": "/cc-client-react/static/media/home_thumbnail.30a6c95783bf81551bfd.png",
+    "index.html": "/cc-client-react/index.html",
+    "main.8920f61e.js.map": "/cc-client-react/static/js/main.8920f61e.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.8920f61e.js"
+  ]
+}
