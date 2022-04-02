@@ -5,7 +5,7 @@ import GlobalStyled from "styles/global";
 
 function App() {
   return (
-    <BrowserRouter basename="/cc-client-react">
+    <BrowserRouter>
       <GlobalStyled />
       <Routes>
         <Route path="/" element={<Home />} />
