@@ -2,7 +2,6 @@
   "name": "cc-client-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://oh930428.github.io/cc-client-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",

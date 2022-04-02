@@ -1,7 +1,8 @@
 import axios, { AxiosError } from "axios";
+import { SERVER_URL } from "constants/env";
 
 export const serverApi = axios.create({
-  baseURL: process.env.REACT_APP_SERVER_URL,
+  baseURL: SERVER_URL,
 });
 
 serverApi.interceptors.response.use(
