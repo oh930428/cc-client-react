@@ -7,3 +7,4 @@ export { default as Comments } from "./Comments";
 export { default as Footer } from "./Footer";
 export { default as Icons } from "./Icons";
 export { default as Inputs } from "./Inputs";
+export { default as Faq } from "./Faq";

@@ -1,24 +1,24 @@
-import axios, { AxiosError } from "axios";
-import { SERVER_URL } from "constants/env";
-
-export const serverApi = axios.create({
-  baseURL: SERVER_URL,
-});
-
-serverApi.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  (error: AxiosError) => {
-    return Promise.reject(error?.response?.data);
-  }
-);
+import { firestore } from "constants/firebase";
+import { communityListType } from "./../types/type";
 
 export const getAllCommunity = async () => {
-  return await serverApi
-    .get("/communities")
-    .then((res) => res.data.data)
-    .catch((err) => {
-      console.error(err);
+  let communityList: communityListType[] = [];
+  return await firestore
+    .collection("communities")
+    .get()
+    .then((docs) => {
+      docs.forEach((doc) => {
+        communityList.push({
+          id: doc.id,
+          data: {
+            id: doc.data().id,
+            tags: doc.data().tags,
+            communityTitle: doc.data().communityTitle,
+            subTitle: doc.data().subTitle,
+            comments: doc.data().comments,
+          },
+        });
+      });
+      return communityList;
     });
 };

@@ -2,19 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import CampCard from "components/CampCard";
 import { mixin, fonts } from "styles";
-import { ICamp } from "types/type";
+import { campListType } from "types/type";
 import { useMediaQuery } from "react-responsive";
 
 interface CampProps {
   title: string;
-  camps: ICamp[];
+  camps: campListType[];
 }
 
 const ContentsSection = ({ title, camps }: CampProps) => {
   const isMobile = useMediaQuery({
     query: "(max-width: 767px)",
   });
-
   return (
     <Container>
       <div
