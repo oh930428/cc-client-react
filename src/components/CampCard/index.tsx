@@ -1,24 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import colors from "styles/colors";
 import fonts from "styles/fonts";
-import { ICamp } from "types/type";
+import { campListType } from "types/type";
 
 interface CardProps {
-  camps: ICamp;
+  camps: campListType;
   isMobile: boolean;
 }
 
 const Card = ({ camps, isMobile }: CardProps) => {
   return (
-    <Container bgImg={camps.thumbnail} bgWidth={isMobile}>
-      <BgOpacityBlack />
-      <div className="card-content">
-        <div className="card-head">{camps.status}</div>
-        <div className="card-name">{camps.campName}</div>
-        <div className="card-start-date">{camps.startDate}</div>
-      </div>
-    </Container>
+    <Link to={`/camps/${camps.id}`}>
+      <Container bgImg={camps.data.thumbnail} bgWidth={isMobile}>
+        <BgOpacityBlack />
+        <div className="card-content">
+          <div className="card-head">{camps.data.status}</div>
+          <div className="card-name">{camps.data.campName}</div>
+          <div className="card-start-date">{camps.data.startDate}</div>
+        </div>
+      </Container>
+    </Link>
   );
 };
 

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import { fonts } from "styles";
-import { IComment } from "types/type";
+import { commentType } from "types/type";
 
 interface CommentProps {
-  comment: IComment;
+  comment: commentType;
 }
 
 const Comment = ({ comment }: CommentProps) => {

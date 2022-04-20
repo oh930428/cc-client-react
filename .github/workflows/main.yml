@@ -18,7 +18,7 @@ jobs:
       - name: Build app
         run: yarn build
         env:
-          REACT_APP_SERVER_URL: ${{ secrets.SERVER_URL }}
+          REACT_APP_API_KEY: ${{ secrets.API_KEY }}
 
       - name: Deploy To s3
         env:

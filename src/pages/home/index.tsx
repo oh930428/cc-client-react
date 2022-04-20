@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 
 import { Footer, Navigation, Padding } from "components";
@@ -11,32 +11,24 @@ import {
 
 import { mixin } from "styles";
 import { useMediaQuery } from "react-responsive";
-
-//TODO: 곧 삭제될 것 => mobx 사용
-import { ICommunity } from "types/type";
-import { getAllCommunity } from "apis/communityApi";
-
-import CampStore from "stores/CampStore";
 import { observer } from "mobx-react-lite";
 
+import CampStore from "stores/CampStore";
+import CommunityStore from "stores/CommunityStore";
+
 const Home = () => {
-  const [communities, setCommunities] = useState<ICommunity[]>();
   const isMobile = useMediaQuery({
     query: "(max-width:767px)",
   });
 
   const campStore = useContext(CampStore);
+  const communityStore = useContext(CommunityStore);
 
   useEffect(() => {
     campStore.fetchCampsPopular();
     campStore.fetchCampsSale();
-    fetchCommunity();
-  }, [campStore]);
-
-  const fetchCommunity = async () => {
-    const communities = await getAllCommunity();
-    setCommunities(communities);
-  };
+    communityStore.fetchCommunity();
+  }, [campStore, communityStore]);
 
   return (
     <Container>
@@ -56,8 +48,11 @@ const Home = () => {
           text={`현직자와 소통하며 배우는\n실무 스킬, 퍼스널 트레이닝`}
         />
         <Padding height="54px" />
-        {communities && (
-          <CommunitySection title="커뮤니티" communities={communities} />
+        {communityStore.allCommunity && (
+          <CommunitySection
+            title="커뮤니티"
+            communities={communityStore.allCommunity}
+          />
         )}
         {!isMobile && <Padding height="242px" />}
       </main>
