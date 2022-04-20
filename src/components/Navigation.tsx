@@ -37,11 +37,7 @@ const Navigation = () => {
         <Link to="/community">
           <img
             className="ic-person"
-            src={
-              isScrolled
-                ? require("../assets/images/ic_person_noWhite.png")
-                : require("../assets/images/ic_person_white.png")
-            }
+            src={require("../assets/images/ic_person_noWhite.png")}
             alt="프로필"
           />
         </Link>
@@ -56,13 +52,13 @@ const Container = styled.nav<{ isScrolled: boolean }>`
   z-index: 100;
   position: fixed;
   width: 100%;
-
   ${(props) =>
     props.isScrolled &&
     css`
       background-color: ${colors.white};
-      transition: 0.5s;
     `}
+
+  transition: 0.5s;
 
   .main {
     ${mixin.maxWidth}
