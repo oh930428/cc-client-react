@@ -1,11 +1,13 @@
-import { getCampsByType } from "apis/campApi";
-import { makeObservable, observable } from "mobx";
 import { createContext } from "react";
-import { ICamp } from "types/type";
+import { makeObservable, observable } from "mobx";
+
+import { getCampsById, getCampsByType } from "apis/campApi";
+import { campListType, campDetailType } from "types/type";
 
 class CampsStore {
-  @observable campPopular: ICamp[] | null = null;
-  @observable campSales: ICamp[] | null = null;
+  @observable campPopular: campListType[] | null = null;
+  @observable campSales: campListType[] | null = null;
+  @observable targetCamp: campDetailType | null = null;
 
   constructor() {
     makeObservable(this);
@@ -19,6 +21,11 @@ class CampsStore {
   fetchCampsSale = async () => {
     const data = await getCampsByType("sale");
     this.campSales = data;
+  };
+
+  fetchCampsById = async (campId: string | undefined) => {
+    const data = await getCampsById(campId);
+    this.targetCamp = data;
   };
 }
 

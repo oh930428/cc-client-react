@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Comment from "./Comment";
-import { IComment } from "types/type";
+import { commentType } from "types/type";
 
-const Comments = ({ comments }: { comments: IComment[] }) => {
+const Comments = ({ comments }: { comments: commentType[] }) => {
   return (
     <Container>
       {comments.map((comment, index) => (

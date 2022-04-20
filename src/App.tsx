@@ -9,7 +9,7 @@ function App() {
       <GlobalStyled />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/camp/:id" element={<CampDetail />} />
+        <Route path="/camps/:id" element={<CampDetail />} />
         <Route path="/camp/apply" element={<CampApply />} />
         <Route path="/community" element={<Community />} />
       </Routes>

@@ -1,23 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import { ICommunity } from "types/type";
+import { communityListType } from "types/type";
 import { Tag, Comments, Padding } from "components";
 import { fonts, colors } from "styles";
 
 interface CommunityProps {
-  community: ICommunity;
+  community: communityListType;
 }
 
 const CommunityCard = ({ community }: CommunityProps) => {
   return (
     <Container>
-      <Tag tags={community.tags} />
+      <Tag tags={community.data.tags} />
       <Padding height="8px" />
-      <div className="communitycard-title">{community.communityTitle}</div>
+      <div className="communitycard-title">{community.data.communityTitle}</div>
       <Padding height="10px" />
-      <div className="communitycard-subtitle">{community.subTitle}</div>
+      <div className="communitycard-subtitle">{community.data.subTitle}</div>
       <Padding height="62px" />
-      <Comments comments={community.comments} />
+      <Comments comments={community.data.comments} />
       <Padding height="17px" />
     </Container>
   );

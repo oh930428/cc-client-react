@@ -3,11 +3,11 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import { mixin, fonts } from "styles";
-import { ICommunity } from "types/type";
+import { communityListType } from "types/type";
 
 interface CommunityProps {
   title: string;
-  communities: ICommunity[];
+  communities: communityListType[];
 }
 
 const CommunitySection = ({ title, communities }: CommunityProps) => {
